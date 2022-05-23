@@ -1,0 +1,58 @@
+<app-barra></app-barra>
+
+<div class="container" *ngIf="persona">
+    
+    <div class="row mt-5">
+        <h4 class="titulo">Editar Perfil</h4>
+        <div class="col-md-6 mx-auto">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="imagen">Url Imagen Perfil</label>
+                    <input type="text" class="form-control" id="imagen" name="imagen"
+                    [(ngModel)]="persona.imagen" required>
+                </div>
+                <div class="form-group">
+                    <label for="backimagen">Url Imagen Banner</label>
+                    <input type="text" class="form-control" id="backimagen" name="backimagen"
+                    [(ngModel)]="persona.backimagen" required>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="nombreCompleto">Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto"
+                    [(ngModel)]="persona.nombreCompleto" required>
+                </div>
+                <div class="form-group">
+                    <label for="titulos">Títulos</label>
+                    <input type="text" class="form-control" id="titulos" name="titulos"
+                    [(ngModel)]="persona.titulos" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono"
+                    [(ngModel)]="persona.telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="ubicacion">Provincia</label>
+                    <input type="text" class="form-control" id="ubicacion" name="ubicacion"
+                    [(ngModel)]="persona.ubicacion" required>
+                </div>
+                <div class="form-group">
+                    <label for="acerca">Acerca de mi</label>
+
+<textarea name="acerca de mi" class="form-control" [(ngModel)]="persona.acerca" required  id="acerca"></textarea>
+                </div>
+            <div class="centrar">
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                    <i class="fas fa-pencil-alt" ></i> Actualizar</button>
+
+                <button class="btn btn-outline-primary btn-block" routerLink="/portfolio">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+                </div>   
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+

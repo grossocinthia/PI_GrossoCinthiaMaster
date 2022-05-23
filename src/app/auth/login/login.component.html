@@ -1,0 +1,54 @@
+<!-- libreria iconos -->
+<div class="container-fluid">
+    <div class="row">
+        <div id="cabecera" class="col">
+             <div id="logoArgPro">
+                    <a href="https://www.argentinaprograma.com.ar/" target="_blank"><img src="../../../assets/APLogo.png"></a>
+            </div>
+    </div>
+
+<div id="cuerpo">
+<div class="text-center" *ngIf="isLogged ; else loggedOut" >
+    <h2>Ya has iniciado sesión</h2> 
+    <button type="button" class="btn btn-primary" routerLink="/portfolio">Ir a Portfolio</button>
+</div>
+
+<ng-template #loggedOut>
+    <div class="container d-flex justify-content-center">
+        <div class="card">
+            <div class="card-header">
+                <h5>iniciar sesión</h5>
+               <!--- <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" routerLink="/login">Iniciar Sesión</a>
+                    </li>
+                    
+                    
+                  </ul>
+                  --->
+            </div>
+            <div class="card-body">
+                <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                    <div class="form-group">
+                        <label for="nombreUsuario">Usuario</label>
+                        <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control"
+                        
+                        [(ngModel)]="nombreUsuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                        [(ngModel)]="password" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="centrar">
+                        <button class="btn btn-outline-primary" [disabled]="!f.valid">
+                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                            </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>
+</div>

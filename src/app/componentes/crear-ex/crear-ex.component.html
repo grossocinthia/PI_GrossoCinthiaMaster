@@ -1,0 +1,52 @@
+<app-barra></app-barra>
+<div class="container">
+    <div class="row mt-5">
+        <h4 class="titulo">Crear Experiencia</h4>
+        <div class="col-md-6 mx-auto">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="imagenEx">url imagen</label>
+                        <input type="imagenEx" class="form-control" id="imagenEx" name="imagenEx"
+                        [(ngModel)]="imagenEx" required>
+                    </div>
+                    <label for="empresa">Empresa</label>
+                    <input type="text" class="form-control" id="empresa" name="empresa"
+                    [(ngModel)]="empresa" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="posicion">Cargo</label>
+                    <textarea name="posicion" class="form-control" 
+                    [(ngModel)]="posicion" required  id="posicion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tipoEmpleo">Tipo Empleo</label>
+                    <input type="tipoEmpleo" class="form-control" id="tipoEmpleo" name="tipoEmpleo"
+                    [(ngModel)]="tipoEmpleo" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="comienzoEx">Comienzo</label>
+                    <input type="text" class="form-control" id="comienzoEx" name="comienzoEx"
+                    [(ngModel)]="comienzoEx" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="finEx">Fin</label>
+                    <input type="finEx" class="form-control" id="finEx" name="finEx"
+                    [(ngModel)]="finEx" required>
+                </div>
+                <div class="centrar">
+                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                        <i class="fas fa-plus-circle" (click)="onCreate()"></i> Crear</button>
+    
+                    <button class="btn btn-outline-primary btn-block" routerLink="/portfolio">
+                        <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+                    </div>   
+                </form>
+            </div>
+        </div>
+        </div>
+    
+    <app-footer></app-footer>

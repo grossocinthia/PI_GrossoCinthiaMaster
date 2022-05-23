@@ -1,0 +1,73 @@
+{
+    "id" : 1,
+    "backimagen": "assets/back.png",
+    "imagen": "assets/foto.png",
+    "nombreCompleto": "Cinthia Maria Grosso",
+    "titulos": "Licenciada en Comunicación Social y Full Stack Developer Jr.",
+    "telefono": "2615169873",
+    "ubicacion":"Mendoza",
+    "acerca": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos ipsa ut odio reprehenderit doloribus veritatis ipsum sint hic velit nam modi eos aspernatur incidunt iure, explicabo suscipit harum amet ducimus! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos ipsa ut odio reprehenderit doloribus veritatis ipsum sint hic velit nam modi eos aspernatur incidunt iure, explicabo suscipit harum amet ducimus!Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos ipsa ut odio",
+    
+    "escuela":[
+        {
+            "institucion": "Universidad Nacional de Cuyo",
+            "imagen": "assets/uncuyo.png",
+            "titulo": "Lorem ipsum dolor sit amet consectetur, a",
+            "estado": "Universitario Completo",
+            "comienzo": "2002",
+            "fin": "2007"
+        },
+    
+        {
+            "escuela": "Fundación Universitas",
+            "imagen": "assets/fundacion.png",
+            "titulo": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. adipisicing elit. Quos ipsa ut odio reprehenderit doloribus veritatis ipsum sint hic velit nam modi eos aspernatur incidunt iure, explicabo suscipit harum amet ducimus!adipisicing elit. Quos ipsa ut odio reprehenderit doloribus veritatis ipsum sint hic velit nam modi eos aspernatur incidunt iure, explicabo suscipit harum amet ducimus!",
+            "estado": "Diplomatura Completa",
+            "comienzo": "2012",
+            "fin": "2012"
+        }
+    ],
+    "experiencia":[
+        {
+            "empresa": "Amapola Diseño a Crochet",
+            "imagen": "assets/amapola.png",
+            "posicion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos ipsa ut odio reprehenderit doloribus veritatis ipsum sint hic velit nam modi eos aspernatur incidunt iure, explicabo suscipit harum amet ducimus!",
+            "tipoEmpleo": "emprendimiento",
+            "comienzo": "2020",
+            "fin": "2022"
+        },
+        {
+            "empresa": "Radio Nihuil",
+            "imagen": "assets/nihuil.png",
+            "posicion": "Lorem ipsum dolor sit amet consectetur",
+            "tipoEmpleo": "full time",
+            "comienzo": "2010",
+            "fin": "2018"
+        },
+    
+        {
+            "empresa": "La Red",
+            "imagen": "assets/lared.png",
+            "posicion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos ipsa ut odio reprehenderit doloribus veritatis ipsum sint hic velit nam modi eos aspernatur incidunt iure, explicabo suscipit harum amet ducimus!",
+            "tipoEmpleo": "part time",
+            "comienzo": "2010",
+            "fin": "2015"
+        }
+    ],
+    "proyecto":[
+        {
+            "titulo": "Universidad Nacional de Cuyo",
+            "imagen": "assets/proy.png",
+            "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos ipsa ut odio reprehenderit doloribus veritatis ipsum sint hic velit nam modi eos aspernatur incidunt iure, explicabo suscipit harum amet ducimus!",
+            "link": "http://www.facebook.com"
+        },
+    
+        {
+            "titulo": "Universidad Nacional de Cuyo",
+            "imagen": "assets/proy.png",
+            "descripcion": "Lorem ipsum dolor sit amet c",
+            "link": "http://www.twitter.com"
+        }
+    ]
+
+}

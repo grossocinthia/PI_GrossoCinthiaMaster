@@ -1,0 +1,112 @@
+#proyectos{
+    margin-top: 50px;
+}
+#acerca{
+   
+  float: right; margin-top: 20px;
+}
+#imagen{
+  margin-top: 20px; float: left;
+}
+p.cuerpo{
+  text-align: justify;
+}
+
+p.h3 {
+  font-weight:300;
+  padding:3px 0 3px 10px;
+}
+ul li{
+  list-style-type: none;
+  margin: 0;
+  padding: 0; float: left;
+  }
+.fa-pen {
+    margin-right: 5px;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    float: right;
+    
+  }
+ /* estilo iconos */
+
+.fa-pen {
+  margin-right: 5px;
+  padding:6px;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  float: right;
+  border: 1px solid rgb(0, 0, 0)  ;
+  border-radius: 50%; 
+}
+
+
+.fa-pen:hover {
+    background-color:rgba(165, 210, 243);
+  box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+-webkit-box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+-moz-box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+cursor:pointer;
+
+-webkit-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+-moz-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+-o-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+  
+}
+
+.fa-trash {
+    
+  margin-right: 5px;
+  padding:6px 18px 7px 7px;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  float: right;
+  border: 1px solid rgb(0, 0, 0)  ;
+  border-radius: 50%; 
+  
+}
+
+
+.fa-trash:hover {
+  background-color:rgba(165, 210, 243);
+  box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+-webkit-box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+-moz-box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+cursor:pointer;
+
+-webkit-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+-moz-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+-o-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+  
+}
+.fa-plus {
+  margin-right: 5px;
+  padding:6px 8px 7px 7px;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  float: right;
+  border: 1px solid rgb(0, 0, 0)  ;
+  border-radius: 50%; 
+  
+}
+
+
+.fa-plus:hover {
+  background-color:rgba(165, 210, 243, 0.719);
+  box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+-webkit-box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+-moz-box-shadow: -1px 11px 18px -5px rgba(0,0,0,0.41);
+cursor:pointer;
+
+-webkit-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+-moz-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+-o-transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+transition: background 0.6s 0s ease, box-shadow 0.5s 0s ease;
+  
+}

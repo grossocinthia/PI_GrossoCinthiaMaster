@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="row">
+                <div id="proyectos" class="col-12" >
+                    <div><i class="fas fa-plus" routerLink="/crearProy"  ></i> </div>
+                    <p class="h3">Proyectos</p>
+                    <div class="separador"> </div>
+                    
+
+    </div>
+    <ul>
+    <div class="row">
+        <li *ngFor="let proyecto of proyectoList">
+    <div id="imagen" class="col-xs-12 col-sm-8 col-md-6 col-lg-5">
+        <div>
+            <img [src]="proyecto.imagenProy"class="img-fluid">
+        </div>
+</div>
+<div id="acerca" class="col-xs-12 col-sm-4 col-md-6 col-lg-7">
+ <span>
+    <div class="fas fa-trash" (click)="borrarProyecto(proyecto.id)" > </div>
+    <div class="fas fa-pen" routerLink="/editarProy/{{proyecto.id}}"> </div>
+    <p class="h4">{{proyecto.tituloProy}}</p>
+    <p class="cuerpo">{{proyecto.descripcion}} </p>
+    <a href= {{proyecto.link}} class="btn btn-primary" target="_blank">Ver Proyecto</a>
+ </span>
+</div>
+        </li>
+        </div>
+    </ul>
+
+    </div>
+</div>
+    
+    

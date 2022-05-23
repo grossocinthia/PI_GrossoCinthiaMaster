@@ -1,0 +1,54 @@
+<app-barra></app-barra>
+
+<div class="container" *ngIf="experienciaList">
+    
+    <div class="row mt-5">
+        <h4 class="titulo">Editar Experiencia</h4>
+        <div class="col-md-6 mx-auto">
+            <form (ngSubmit)="onUpdate(experienciaList.id)" novalidate #f="ngForm">
+            <div class="form-group">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" class="form-control" id="empresa" name="empresa"
+                    [(ngModel)]="experienciaList.empresa" required>
+                </div>
+                <div class="form-group">
+                    <label for="imagenEx">Url Imagen</label>
+                    <input type="text" class="form-control" id="imagenEx" name="imagenEx"
+                    [(ngModel)]="experienciaList.imagenEx" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="posicion">Cargo</label>
+                    <textarea name="posicion" class="form-control" 
+                    [(ngModel)]="experienciaList.posicion" required  id="posicion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tipoEmpleo">Tipo de Empleo</label>
+                    <input type="text" class="form-control" id="tipoEmpleo" name="tipoEmpleo"
+                    [(ngModel)]="experienciaList.tipoEmpleo" required>
+                </div>
+                <div class="form-group">
+                    <label for="comienzoEx">Comienzo</label>
+                    <input type="text" class="form-control" id="comienzoEx" name="comienzoEx"
+                    [(ngModel)]="experienciaList.comienzoEx" required>
+                </div>
+                <div class="form-group">
+                    <label for="finEx">Fin</label>
+                    <input type="text" class="form-control" id="finEx" name="finEx"
+                    [(ngModel)]="experienciaList.finEx" required>
+                </div>
+           
+            <div class="centrar">
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                    <i class="fas fa-pencil-alt" ></i> Actualizar</button>
+
+                <button class="btn btn-outline-primary btn-block" routerLink="/portfolio">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+                </div>   
+            </form>
+        </div>
+    </div>
+    </div>
+
+<app-footer></app-footer>
+

@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+                <div id="experiencia" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+                    <div><i class="fas fa-plus" routerLink="/crearEx"></i> </div>
+                    <p class="h3">Experiencia</p>
+                    <div class="separador"> </div>
+                
+
+    </div>
+    <ul>
+        <div class="row">
+        <li *ngFor="let experiencia of experienciaList">
+            <div id="imagen" class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div>
+                    <img [src]="experiencia.imagenEx" class="img-fluid">
+                </div>
+        </div>
+        <div id="acerca" class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
+                            <div class="fas fa-trash" (click)="borrarExperiencia(experiencia.id)" ></div>
+                            <div class="fas fa-pen" routerLink="/editarEx/{{experiencia.id}}" ></div>
+         <span>
+            <p class="h4">{{experiencia.empresa}}</p>
+            <p>{{experiencia.posicion}}</p>
+            <p>{{experiencia.tipoEmpleo}}</p>
+            <p><time>{{experiencia.comienzoEx}}</time> - <time>{{experiencia.finEx}}</time></p>
+         </span>
+        </div>
+        </li>
+    </div>
+    </ul> 
+  
+</div>
+   
+    
+</div>
+
+    
+   
