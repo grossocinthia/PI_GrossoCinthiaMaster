@@ -8,7 +8,7 @@ import { EditarEducacionComponent } from './componentes/editar-educacion/editar-
 import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
 import { EditarPerfilComponent } from './componentes/editar-perfil/editar-perfil.component';
 import { EditarProyectoComponent } from './componentes/editar-proyecto/editar-proyecto.component';
-import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
+
 
 
 
@@ -26,9 +26,7 @@ const routes: Routes = [
   { path: 'editarPerfil/:id', component: EditarPerfilComponent},
   { path: 'editarEx/:id', component: EditarExperienciaComponent},
   { path: 'editarEd/:id', component: EditarEducacionComponent},
-  { path: 'upload', component: FileUploadComponent},
 
-  
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 
  

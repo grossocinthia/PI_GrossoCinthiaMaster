@@ -27,8 +27,8 @@ import { EditarPerfilComponent } from './componentes/editar-perfil/editar-perfil
 import { EditarEducacionComponent } from './componentes/editar-educacion/editar-educacion.component';
 import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
 import { EditarProyectoComponent } from './componentes/editar-proyecto/editar-proyecto.component';
-import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
-import {  NgxSpinnerModule} from 'ngx-spinner'
+
+
 
 
 
@@ -55,8 +55,7 @@ import {  NgxSpinnerModule} from 'ngx-spinner'
     EditarPerfilComponent,
     EditarEducacionComponent,
     EditarExperienciaComponent,
-    EditarProyectoComponent,
-    FileUploadComponent,
+    EditarProyectoComponent
   ],
 
   imports: [
@@ -66,8 +65,7 @@ import {  NgxSpinnerModule} from 'ngx-spinner'
     RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    NgxSpinnerModule
+    FormsModule
   ],
   providers: [interceptorProvider
 ],

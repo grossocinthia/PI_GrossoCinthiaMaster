@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Proyecto } from 'src/app/models/proyecto';
 import { ProyectoService } from 'src/app/service/proyectoService';
 
 @Component({
@@ -10,13 +9,15 @@ import { ProyectoService } from 'src/app/service/proyectoService';
 })
 export class EditarProyectoComponent implements OnInit {
  
-
+  
   proyectoList: any ;
   id:number=0;
 
-  
 
-  constructor(private datosproyecto: ProyectoService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private datosproyecto: ProyectoService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router,
+    ) { }
 
   ngOnInit(): void { 
 
@@ -40,5 +41,4 @@ export class EditarProyectoComponent implements OnInit {
     );
   }
   
-
 }
