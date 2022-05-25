@@ -1,38 +1,22 @@
-<app-barra></app-barra>
-<div class="row">
-    <div class="col-8">
-      <label class="btn btn-default p-0">
-        <input type="file" (change)="selectFile($event)" />
-      </label>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Subiendo imagen...</p>
+</ngx-spinner>
+
+<form (ngSubmit)="onUpload()" novalidate enctype="multipart/form-data">
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="imagen" #imagenInputFile
+        (change)="onFileChange($event)" accept="image/png, image/jpeg, image/gif">
+        <label class="custom-file-label" for="imagen">Elige una imagen</label>
     </div>
-    <div class="col-4">
-      <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
-        Upload
-      </button>
+    <div *ngIf="imagen" class="mt-5">
+        <h5>Vista Previa:</h5>
+        <div>
+            <img class="image-thumbnail" style="max-width: 100px" [src]="imagenMin">
+        </div>
     </div>
-  </div>
-  <div *ngIf="currentFile" class="progress my-3">
-    <div
-      class="progress-bar progress-bar-info progress-bar-striped"
-      role="progressbar"
-      attr.aria-valuenow="{{ progress }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      [ngStyle]="{ width: progress + '%' }"
-    >
-      {{ progress }}%
+    <div class="form-group d-flex justify-content-between my-3">
+        <button type="submit" class="btn btn-outline-success" [disabled]="!imagen"><i class="fas fa-upload"></i> Subir</button>
+        <button class="btn btn-outline-danger" [disabled]="!imagen" (click)="reset()"><i class="fas fa-sync-alt"></i> Reset</button>
     </div>
-  </div>
-  <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
-  <div class="card mt-3">
-    <div class="card-header">List of Files</div>
-    <ul
-      class="list-group list-group-flush"
-      *ngFor="let file of fileInfos | async"
-    >
-      <li class="list-group-item">
-        <a href="{{ file.url }}">{{ file.name }}</a>
-      </li>
-    </ul>
-  </div>
-<app-footer></app-footer>
+</form>

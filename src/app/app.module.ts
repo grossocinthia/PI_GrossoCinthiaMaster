@@ -28,6 +28,8 @@ import { EditarEducacionComponent } from './componentes/editar-educacion/editar-
 import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
 import { EditarProyectoComponent } from './componentes/editar-proyecto/editar-proyecto.component';
 import { FileUploadComponent } from './componentes/file-upload/file-upload.component';
+import {  NgxSpinnerModule} from 'ngx-spinner'
+
 
 
 
@@ -64,7 +66,8 @@ import { FileUploadComponent } from './componentes/file-upload/file-upload.compo
     RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+    NgxSpinnerModule
   ],
   providers: [interceptorProvider
 ],

@@ -19,7 +19,7 @@
 <div id="acerca" class="col-xs-12 col-sm-4 col-md-6 col-lg-7">
  <span>
     <div class="fas fa-trash" (click)="borrarProyecto(proyecto.id)" > </div>
-    <div class="fas fa-pen" routerLink="/editarProy/{{proyecto.id}}"> </div>
+    <div class="fas fa-pen" data-bs-toggle= "proyectoEdit" data-bs-target=" editProy" routerLink="/editarProy/{{proyecto.id}}"> </div>
     <p class="h4">{{proyecto.tituloProy}}</p>
     <p class="cuerpo">{{proyecto.descripcion}} </p>
     <a href= {{proyecto.link}} class="btn btn-primary" target="_blank">Ver Proyecto</a>

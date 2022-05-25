@@ -1,56 +1,59 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { FileUploadService } from 'src/app/service/file-upload.service';
+import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { ImagenService } from 'src/app/service/imagen.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css']
 })
-export class FileUploadComponent implements OnInit {
+export class FileUploadComponent {
 
-  selectedFiles?: FileList;
-  currentFile?: File;
-  progress = 0;
-  message = '';
-  fileInfos?: Observable<any>;
+  @ViewChild('imagenInputFile', { static: false })
+  imagenFile!: ElementRef;
 
-  constructor(private uploadService: FileUploadService) { }
-  selectFile(event: any): void {
-    this.selectedFiles = event.target.files;
+  imagen: any;
+  imagenMin: any;
+
+  constructor(
+    private imagenService: ImagenService,
+    private router: Router,
+    private spinner: NgxSpinnerService
+  ) { }
+
+  ngOnInit() {
   }
-  upload(): void {
-    this.progress = 0;
-    if (this.selectedFiles) {
-      const file: File | null = this.selectedFiles.item(0);
-      if (file) {
-        this.currentFile = file;
-        this.uploadService.upload(this.currentFile).subscribe({
-          next: (event: any) => {
-            if (event.type === HttpEventType.UploadProgress) {
-              this.progress = Math.round(100 * event.loaded / event.total);
-            } else if (event instanceof HttpResponse) {
-              this.message = event.body.message;
-              this.fileInfos = this.uploadService.getFiles();
-            }
-          },
-          error: (err: any) => {
-            console.log(err);
-            this.progress = 0;
-            if (err.error && err.error.message) {
-              this.message = err.error.message;
-            } else {
-              this.message = 'Could not upload the file!';
-            }
-            this.currentFile = undefined;
-          }
-        });
+
+  onFileChange(event:any) {
+    this.imagen = event.target.files[0];
+    const fr = new FileReader();
+    fr.onload = (evento: any) => {
+      this.imagenMin = evento.target.result;
+    };
+    fr.readAsDataURL(this.imagen);
+  }
+
+  onUpload(): void {
+    this.spinner.show();
+    this.imagenService.upload(this.imagen).subscribe(
+      data => {
+        this.spinner.hide();
+        this.router.navigate(['/']);
+      },
+      err => {
+        alert(err.error.mensaje);
+        this.spinner.hide();
+        this.reset();
       }
-      this.selectedFiles = undefined;
-    }
+    );
   }
-  ngOnInit(): void {
-    this.fileInfos = this.uploadService.getFiles();
+
+  reset(): void {
+    this.imagen = null;
+    this.imagenMin = null;
+    this.imagenFile.nativeElement.value = '';
   }
+
 }
