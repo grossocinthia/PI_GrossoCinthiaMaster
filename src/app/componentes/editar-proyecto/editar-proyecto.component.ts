@@ -1,4 +1,4 @@
-import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit,  ViewChild, ElementRef, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProyectoService } from 'src/app/service/proyectoService';
 
@@ -9,18 +9,18 @@ import { ProyectoService } from 'src/app/service/proyectoService';
 })
 export class EditarProyectoComponent implements OnInit {
  
-  
+
   proyectoList: any ;
   id:number=0;
 
 
   constructor(private datosproyecto: ProyectoService, 
     private activatedRoute: ActivatedRoute, 
-    private router: Router,
+    private router: Router
     ) { }
 
   ngOnInit(): void { 
-
+    
     this.id= Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.datosproyecto.buscarProyecto(this.id).subscribe(data =>{
       console.log(data);

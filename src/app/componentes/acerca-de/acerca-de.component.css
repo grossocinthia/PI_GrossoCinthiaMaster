@@ -7,8 +7,8 @@
     background-size: 100% auto;
     height: 220px;
     width: 220px;
-    float: left;
     margin-top: -125px;
+    margin-left: 17%;
     box-shadow: rgb(88, 88, 88) 0px 0px 5px 1px ;
     overflow: hidden;
 }
@@ -37,11 +37,10 @@
 
 #nombre{
     float: left;
-    text-align: left;
     margin-top: 5px;
-   
-   
-
+}
+#nombre p{
+    text-align: center;
 }
 #bot {
     float: left;
@@ -51,7 +50,7 @@ p.cuerpo{
     text-align: justify;
 }
 p.h4 {
-    font-weight:300;
+    font-weight:200;
     padding:3px 0 3px 10px;
 }
 /* estilo iconos */

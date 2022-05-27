@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Proyecto } from 'src/app/models/proyecto';
+
 import { ProyectoService } from 'src/app/service/proyectoService';
+
+
 
 
 @Component({
@@ -11,7 +15,7 @@ import { ProyectoService } from 'src/app/service/proyectoService';
 export class ProyectosComponent implements OnInit {
   
   proyectoList: any;
- 
+
   
   constructor(private datosproyecto: ProyectoService, 
     private activatedRoute: ActivatedRoute, 
@@ -38,7 +42,6 @@ export class ProyectosComponent implements OnInit {
     );
   }
   
-
 }
 
 

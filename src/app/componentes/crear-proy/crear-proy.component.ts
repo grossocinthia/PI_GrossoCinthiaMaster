@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/models/proyecto';
 import { ProyectoService } from 'src/app/service/proyectoService';
+
 
 @Component({
   selector: 'app-crear-proy',

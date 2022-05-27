@@ -1,0 +1,30 @@
+<app-barra></app-barra>
+<div class="container">
+    <div class="row mt-5">
+        <h4 class="titulo">Crear Skill</h4>
+        <div class="col-md-6 mx-auto">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="nombreSkill">Skill</label>
+                        <input type="nombreSkill" class="form-control" id="nombreSkill" name="nombreSkill"
+                        [(ngModel)]="nombreSkill" required>
+                    </div>
+                    <label for="percent">Porcentaje</label>
+                    <input type="text" class="form-control" id="percent" name="percent"
+                    [(ngModel)]="percent" required>
+                </div>
+                
+            <div class="centrar">
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                    <i class="fas fa-plus-circle" (click)="onCreate()"></i> Crear</button>
+
+                <button class="btn btn-outline-primary btn-block" routerLink="/portfolio">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
+                </div>   
+            </form>
+        </div>
+    </div>
+    </div>
+
+<app-footer></app-footer>

@@ -27,9 +27,9 @@ import { EditarPerfilComponent } from './componentes/editar-perfil/editar-perfil
 import { EditarEducacionComponent } from './componentes/editar-educacion/editar-educacion.component';
 import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
 import { EditarProyectoComponent } from './componentes/editar-proyecto/editar-proyecto.component';
-
-
-
+import { NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import { CrearSkillComponent } from './componentes/crear-skill/crear-skill.component';
+import { EditarSkillComponent } from './componentes/editar-skill/editar-skill.component';
 
 
 
@@ -55,7 +55,9 @@ import { EditarProyectoComponent } from './componentes/editar-proyecto/editar-pr
     EditarPerfilComponent,
     EditarEducacionComponent,
     EditarExperienciaComponent,
-    EditarProyectoComponent
+    EditarProyectoComponent,
+    CrearSkillComponent,
+    EditarSkillComponent
   ],
 
   imports: [
@@ -65,7 +67,8 @@ import { EditarProyectoComponent } from './componentes/editar-proyecto/editar-pr
     RouterModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModalModule
   ],
   providers: [interceptorProvider
 ],

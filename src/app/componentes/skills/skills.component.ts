@@ -1,15 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SkillService } from 'src/app/service/skill.service';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent implements OnInit {
+export class SkillsComponent  implements OnInit {
 
-  constructor() { }
+  
+  skillList: any;
+  
+  constructor(private datosSkill: SkillService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+  this.datosSkill.verSkill().subscribe(data =>{
+      console.log(data);
+      this.skillList=data;
+    });
   }
+  borrarSkill(id: number) {
+    this.datosSkill.borrarSkill(id).subscribe(
+      data => {
+        console.log(data);
+        this.datosSkill.borrarSkill;
+        this.ngOnInit();
+      },
+     
+    );
+  }
+  
 
 }
+
+
