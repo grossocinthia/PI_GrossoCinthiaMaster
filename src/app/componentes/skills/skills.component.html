@@ -11,7 +11,7 @@
                      
                   <li *ngFor="let skill of skillList">
                         
-                    <div id="grafico" class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div id="grafico" class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
         
                         <div style="max-width: 100%;">                           
                             <!--<div class="card-header">{{skill.nombreSkill}}</div>-->
@@ -37,6 +37,8 @@
                                 [subtitle]="skill.nombreSkill"
                                 [subtitleFontSize]="'20'"
                                 [subtitleColor]="'#006ec2'"
+                                
+                               
                                  
                                  >
                                 </circle-progress>
