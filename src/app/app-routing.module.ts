@@ -16,20 +16,22 @@ import { EditarSkillComponent } from './componentes/editar-skill/editar-skill.co
 
 
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
+import { GuardGuard } from './guards/guard.guard';
+import { GuardsGuard } from './service/guards.guard';
 
 
 const routes: Routes = [
-  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'portfolio', component: PortfolioComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
   { path: 'login', component: LoginComponent },
-  { path: 'crearEd', component: CrearEdComponent},
-  { path: 'crearEx', component: CrearExComponent},
-  { path: 'crearProy', component: CrearProyComponent},
-  { path: 'editarProy/:id', component: EditarProyectoComponent},
-  { path: 'editarPerfil/:id', component: EditarPerfilComponent},
-  { path: 'editarEx/:id', component: EditarExperienciaComponent},
-  { path: 'editarEd/:id', component: EditarEducacionComponent},
-  { path: 'crearSkill', component: CrearSkillComponent},
-  { path: 'editarSkill/:id', component:EditarSkillComponent},
+  { path: 'crearEd', component: CrearEdComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'crearEx', component: CrearExComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'crearProy', component: CrearProyComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'editarProy/:id', component: EditarProyectoComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'editarPerfil/:id', component: EditarPerfilComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'editarEx/:id', component: EditarExperienciaComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'editarEd/:id', component: EditarEducacionComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'crearSkill', component: CrearSkillComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'editarSkill/:id', component:EditarSkillComponent, canActivate: [GuardsGuard], data: { expectedRol: ['admin', 'user'] }},
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 

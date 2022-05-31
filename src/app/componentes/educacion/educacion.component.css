@@ -1,5 +1,4 @@
-
-    
+ 
 #educacion{
   margin-top: 50px;
   
@@ -20,10 +19,10 @@
   overflow: hidden;
 }
 img {
-  height: 100%;
-  width: 100%;
-  object-fit:fill;
+  object-fit: cover;
   object-position: center;
+  width: 200px;
+  height: 100px;
 }
 
 ul li{
