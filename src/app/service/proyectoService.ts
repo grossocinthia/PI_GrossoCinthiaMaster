@@ -7,7 +7,7 @@ import { Proyecto } from '../models/proyecto';
   providedIn: 'root'
 })
 export class ProyectoService {
-  url = 'https://appgrosso.herokuapp.com/appgrosso/proyecto/';
+  url = 'https://aplicaciongrosso.herokuapp.com/aplicacion/proyecto/';
 
   constructor(private httpClient: HttpClient) { }
 

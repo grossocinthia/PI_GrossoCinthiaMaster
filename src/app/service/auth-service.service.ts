@@ -10,7 +10,7 @@ import { JwtDTO } from '../models/jwt-dto';
 })
 export class AuthService {
 
-  authURL = 'https://appgrosso.herokuapp.com/auth/';
+  authURL = 'https://aplicaciongrosso.herokuapp.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
 

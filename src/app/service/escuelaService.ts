@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EscuelaService {
-  url = 'https://appgrosso.herokuapp.com/appgrosso/escuela/';
+  url = 'https://aplicaciongrosso.herokuapp.com/aplicacion/escuela/';
 
   constructor(private httpClient: HttpClient) { }
 

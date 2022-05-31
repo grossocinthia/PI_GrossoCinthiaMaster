@@ -7,7 +7,7 @@ import { Experiencia } from '../models/experiencia';
   providedIn: 'root'
 })
 export class ExperienciaService {
-  url = 'https://appgrosso.herokuapp.com/appgrosso/experiencia/';
+  url = 'https://aplicaciongrosso.herokuapp.com/aplicacion/experiencia/';
 
   constructor(private httpClient: HttpClient) { }
 
