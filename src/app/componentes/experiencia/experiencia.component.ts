@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Experiencia } from 'src/app/models/experiencia';
 import { ExperienciaService } from 'src/app/service/experienciaService';
 
 
@@ -10,7 +11,12 @@ import { ExperienciaService } from 'src/app/service/experienciaService';
 })
 export class ExperienciaComponent implements OnInit {
 
-  
+  empresa='';
+  imagenEx='';
+  posicion='';
+  tipoEmpleo='';
+  comienzoEx='';
+  finEx='';
   experienciaList: any;
   
   constructor(private datosexperiencia: ExperienciaService, private activatedRoute: ActivatedRoute, private router: Router) { }
@@ -32,6 +38,15 @@ export class ExperienciaComponent implements OnInit {
     );
   }
   
-
+  onCreate(): void {
+    const experiencia = new Experiencia(this.empresa, this.imagenEx, this.posicion, this.tipoEmpleo, this.comienzoEx, this.finEx);
+    this.datosexperiencia.agregarExperiencia(experiencia).subscribe(
+      data => {
+        
+        this.ngOnInit();
+      })
+      
+    
+  }
 }
 

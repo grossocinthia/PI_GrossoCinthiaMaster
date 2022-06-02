@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Skill } from 'src/app/models/skill';
 import { SkillService } from 'src/app/service/skill.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { SkillService } from 'src/app/service/skill.service';
 })
 export class SkillsComponent  implements OnInit {
 
-  
+  nombreSkill='';
+  percent='';
   skillList: any;
   
   constructor(private datosSkill: SkillService, private activatedRoute: ActivatedRoute, private router: Router) { }
@@ -31,7 +33,16 @@ export class SkillsComponent  implements OnInit {
     );
   }
   
-
+  onCreate(): void {
+    const skill = new Skill(this.nombreSkill, this.percent);
+    this.datosSkill.agregarSkill(skill).subscribe(
+      data => {
+        
+        this.ngOnInit();
+      })
+      
+    
+  }
 }
 
 

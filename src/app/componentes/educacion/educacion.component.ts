@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Escuela } from 'src/app/models/escuela';
 import { EscuelaService } from 'src/app/service/escuelaService';
 
 
@@ -13,7 +14,12 @@ import { EscuelaService } from 'src/app/service/escuelaService';
 export class EducacionComponent implements OnInit {
   
   escuelaList: any;
-  
+  institucion= '';
+  titulo= '';
+  imagenEd= '';
+  comienzoEd= '';
+  finEd= '';
+  estado= '';
   constructor(private datosescuela: EscuelaService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -32,7 +38,16 @@ export class EducacionComponent implements OnInit {
      
     );
   }
-  
+  onCreate(): void {
+    const escuela = new Escuela(this.imagenEd, this.institucion, this.titulo, this.estado, this.comienzoEd, this.finEd);
+    this.datosescuela.agregarEscuela(escuela).subscribe(
+      data => {
+        
+        this.ngOnInit();
+      })
+      
+    
+  }
 
 }
 

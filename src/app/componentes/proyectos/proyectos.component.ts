@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Proyecto } from 'src/app/models/proyecto';
-
 import { ProyectoService } from 'src/app/service/proyectoService';
-
-
+import { Proyecto } from 'src/app/models/proyecto';
 
 
 @Component({
@@ -15,7 +12,10 @@ import { ProyectoService } from 'src/app/service/proyectoService';
 export class ProyectosComponent implements OnInit {
   
   proyectoList: any;
-
+  imagenProy='';
+  tituloProy='';
+  descripcion='';
+  link='';
   
   constructor(private datosproyecto: ProyectoService, 
     private activatedRoute: ActivatedRoute, 
@@ -41,7 +41,17 @@ export class ProyectosComponent implements OnInit {
      
     );
   }
-  
+  onCreate(): void {
+    const proyecto = new Proyecto(this.imagenProy, this.tituloProy, this.descripcion, this.link);
+    this.datosproyecto.agregarProyecto(proyecto).subscribe(
+      data => {
+        
+        this.ngOnInit();
+        
+      })
+      
+    
+  }
 }
 
 

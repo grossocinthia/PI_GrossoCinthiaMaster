@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
                 <div id="experiencia" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-                    <div><i class="fas fa-plus" routerLink="/crearEx"></i> </div>
+                    <div><i class="fas fa-plus" data-bs-toggle="modal" data-bs-target="#crearEx"></i> </div>
                     <p class="h3">Experiencia</p>
                     <div class="separador"> </div>
     </div>
@@ -33,4 +33,60 @@
 </div>
 
     
+  <!-- Modal -->
+  <div class="modal fade" id="crearEx" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Experiencia</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="imagenEx">url imagen</label>
+                        <input type="imagenEx" class="form-control" id="imagenEx" name="imagenEx"
+                        [(ngModel)]="imagenEx" required>
+                    </div>
+                    <label for="empresa">Empresa</label>
+                    <input type="text" class="form-control" id="empresa" name="empresa"
+                    [(ngModel)]="empresa" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="posicion">Cargo</label>
+                    <textarea name="posicion" class="form-control" 
+                    [(ngModel)]="posicion" required  id="posicion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tipoEmpleo">Tipo Empleo</label>
+                    <input type="tipoEmpleo" class="form-control" id="tipoEmpleo" name="tipoEmpleo"
+                    [(ngModel)]="tipoEmpleo" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="comienzoEx">Comienzo</label>
+                    <input type="text" class="form-control" id="comienzoEx" name="comienzoEx"
+                    [(ngModel)]="comienzoEx" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="finEx">Fin</label>
+                    <input type="finEx" class="form-control" id="finEx" name="finEx"
+                    [(ngModel)]="finEx" required>
+                </div>
+                <div class="centrar">
+                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                        <i class="fas fa-plus-circle" (click)="onCreate()" data-bs-dismiss="hide.bs.modal" ></i> Crear</button>
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>   
+                </form>
+            
+        </div>
+        
+      </div>
+    </div>
+  </div>
    

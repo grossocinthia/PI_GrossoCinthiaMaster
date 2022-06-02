@@ -2,7 +2,7 @@
     
     <div class="row">
                 <div id="educacion" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-                    <div><i class="fas fa-plus" routerLink="/crearEd" ></i> </div>
+                    <div><i class="fas fa-plus" data-bs-toggle="modal" data-bs-target="#crearEd"></i> </div>
                     <p class="h3">Educacion</p>
                     <div class="separador"> </div>
                 </div>
@@ -39,5 +39,60 @@
         
 </div>
 
-    
+     
+
+  <!-- Modal -->
+  <div class="modal fade" id="crearEd" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Educación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                
+                <div class="form-group">
+                    <label for="imagenEd">url Imagen</label>
+                    <input type="text" class="form-control" id="imagenEd" name="imagenEd"
+                    [(ngModel)]="imagenEd" required>
+                </div>
+                <div class="form-group">
+                    <label for="institucion">Institucion</label>
+                    <input type="text" class="form-control" id="institucion" name="institucion"
+                    [(ngModel)]="institucion" required>
+                </div>
+                <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo"
+                    [(ngModel)]="titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" class="form-control" id="estado" name="estado"
+                    [(ngModel)]="estado" required>
+                </div>
+                <div class="form-group">
+                    <label for="comienzoEd">Comienzo</label>
+                    <input type="text" class="form-control" id="comienzoEd" name="comienzoEd"
+                    [(ngModel)]="comienzoEd" required>
+                </div>
+                <div class="form-group">
+                    <label for="finEd">Fin</label>
+                    <input type="text" class="form-control" id="finEd" name="finEd"
+                    [(ngModel)]="finEd" required>
+                </div>
+                <div class="centrar">
+                    <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                        <i class="fas fa-plus-circle" (click)="onCreate()" data-bs-dismiss="hide.bs.modal" ></i> Crear</button>
+                        
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>     
+                </form>
+            
+        </div>
+        
+      </div>
+    </div>
+  </div>  
    
