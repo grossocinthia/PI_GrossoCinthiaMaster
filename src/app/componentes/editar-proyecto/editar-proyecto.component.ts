@@ -60,7 +60,7 @@ export class EditarProyectoComponent implements OnInit {
         console.log(data);
         this.datosproyecto.editarProyecto;
         this.bsModalRef.hide();   
-        
+        location.reload();
         
     });
   }

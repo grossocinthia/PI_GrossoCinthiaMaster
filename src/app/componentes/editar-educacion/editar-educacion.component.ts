@@ -63,7 +63,7 @@ export class EditarEducacionComponent implements OnInit {
         console.log(data);
         this.datosescuela.editarEscuela;
         this.bsModalRef.hide();   
-        
+        location.reload();
         
     });
   }

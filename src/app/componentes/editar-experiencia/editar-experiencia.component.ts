@@ -68,7 +68,7 @@ export class EditarExperienciaComponent implements OnInit {
         console.log(data);
         this.datosexperiencia.editarExperiencia;
         this.bsModalRef.hide();   
-        
+        location.reload();
         
     });
   }

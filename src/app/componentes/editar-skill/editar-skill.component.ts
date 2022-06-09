@@ -59,7 +59,7 @@ export class EditarSkillComponent implements OnInit {
         console.log(data);
         this.datosSkill.editarSkill;
         this.bsModalRef.hide();   
-      
+        location.reload();
         
     });
   }

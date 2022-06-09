@@ -65,7 +65,7 @@ export class EditarPerfilComponent implements OnInit {
         console.log(data);
         this.datospersona.editarPersona;
         this.bsModalRef.hide();   
-        
+        location.reload();
         
     });
   }
