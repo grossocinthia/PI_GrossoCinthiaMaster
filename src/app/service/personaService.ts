@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Persona } from '../models/persona';
 
 
@@ -8,6 +8,7 @@ import { Persona } from '../models/persona';
   providedIn: 'root'
 })
 export class PersonaService {
+  postIdSource = new  BehaviorSubject<number>(0);
 url = 'https://aplicaciongrosso.herokuapp.com/aplicacion/persona/';
 
   constructor(private httpClient: HttpClient) { }
@@ -17,7 +18,9 @@ url = 'https://aplicaciongrosso.herokuapp.com/aplicacion/persona/';
   }
 
   public buscarPersona(id: number): Observable<Persona> {
-    return this.httpClient.get<Persona>(this.url + `ver/{id}`);
+    let header = new HttpHeaders();
+    header.append('Content-Type', 'applications/json');
+    return this.httpClient.get<Persona>(this.url + `ver/${id}`);
   }
 
 
@@ -25,11 +28,14 @@ url = 'https://aplicaciongrosso.herokuapp.com/aplicacion/persona/';
     return this.httpClient.post<any>(this.url + 'new', persona);
   }
 
-  public editarPersona(id: number, persona: Persona): Observable<any> {
-    return this.httpClient.put<any>(this.url + `editar/{id}`, persona);
+  public editarPersona(persona: Persona): Observable<any> {
+    return this.httpClient.put<any>(this.url + `editar`, persona);
   }
 
   public borrarPersona(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.url + `delete/{id}`);
+    return this.httpClient.delete<any>(this.url + `delete/${id}`);
+  }
+  changePostId(id: number){
+    this.postIdSource.next(id);
   }
 }

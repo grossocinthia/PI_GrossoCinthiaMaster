@@ -1,46 +1,50 @@
 
-<app-barra></app-barra>
-
-<div class="container" *ngIf="proyectoList">
-    
-    <div class="row mt-5">
-        <h4 class="titulo">Editar Proyecto</h4>
-        <div class="col-md-6 mx-auto">
-            <form (ngSubmit)="onUpdate(proyectoList.id)" novalidate #f="ngForm">
-            <div class="form-group">
-                    <label for="imagenProy">Url Imagen </label>
-                    <input type="text" class="form-control" id="imagenProy" name="imagenProy"
-                    [(ngModel)]="proyectoList.imagenProy" required>
-                </div>
-                <div class="form-group">
-                    <label for="tituloProy">Título</label>
-                    <input type="text" class="form-control" id="tituloProy" name="tituloProy"
-                    [(ngModel)]="proyectoList.tituloProy" required>
-                </div>
-              
-                <div class="form-group">
-                    <label for="descripcion">Descripcion</label>
-                    <textarea name="descripcion" class="form-control" 
-                    [(ngModel)]="proyectoList.descripcion" required  id="descripcion"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="link">Link</label>
-                    <input type="text" class="form-control" id="link" name="link"
-                    [(ngModel)]="proyectoList.link" required>
-                </div>
-              
-           
-            <div class="centrar">
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                    <i class="fas fa-pencil-alt" ></i> Actualizar</button>
-
-                <button class="btn btn-outline-primary btn-block" routerLink="/portfolio">
-                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
-                </div>   
-            </form>
+<div role="document">
+    <div>
+      <form class="form-horizontal" id="add-form" [formGroup]="editPostForm" (ngSubmit)="onPostEditFormProyecto()">
+        <div class="modal-header" *ngIf="proyecto">
+          <h4 class="modal-title" id="add-modal-label">Editar Proyecto</h4>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true"></span></button>
+         
         </div>
+        <div class="entrador">
+        <div class="modal-body">
+         
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Título</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="tituloProy" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Url imagen</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="imagenProy" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Descripción</label>
+            <div class="col-sm-12">
+              <textarea class="form-control" formControlName="descripcion"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Link</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="link" />
+            </div>
+          </div>
+        
+          
+       
+      </div>
+        <div class="modal-footer">
+          <div class="centrar">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+      </div>
+        </div>
+      </form>
     </div>
-    </div>
-
-<app-footer></app-footer>
+  </div>

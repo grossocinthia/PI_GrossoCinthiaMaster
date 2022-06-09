@@ -17,9 +17,9 @@
                             <!--<div class="card-header">{{skill.nombreSkill}}</div>-->
 
                                 <div id="botonera"> 
-                                <div class="fas fa-trash" (click)="borrarSkill(skill.id)" > </div>
-                                 <div class="fas fa-pen"  routerLink="/editarSkill/{{skill.id}}"> </div>
-                                </div>
+                               <div class="fas fa-trash" (click)="borrarSkill(skill.id)" > </div>
+                               <div class="fas fa-pen"(click)="editPost(skill.id)"> </div>
+                               </div>
 
                             <div class="card-body text-dark">
 
@@ -56,7 +56,7 @@
 </div>
 
 
-  <!-- Modal -->
+  <!-- Modal crear-->
   <div class="modal fade" id="crearSkill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -78,9 +78,7 @@
                 </div>
                 
             <div class="centrar">
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                    <i class="fas fa-plus-circle" (click)="onCreate()" data-bs-dismiss="hide.bs.modal" ></i> Crear</button>
-            
+                <button type="button" class="btn btn-primary" (click)="onCreate()" data-bs-dismiss="modal" >Crear</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>   
             </form>
@@ -90,3 +88,4 @@
       </div>
     </div>
   </div>
+  

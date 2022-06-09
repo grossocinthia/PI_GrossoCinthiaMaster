@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { SkillService } from 'src/app/service/skill.service';
+
+
 
 @Component({
   selector: 'app-editar-skill',
@@ -8,36 +13,64 @@ import { SkillService } from 'src/app/service/skill.service';
   styleUrls: ['./editar-skill.component.css']
 })
 export class EditarSkillComponent implements OnInit {
-
-  
-
-  skillList: any ;
+ 
+  editPostForm: FormGroup;
   id:number=0;
+  skill:any;
 
-  
+  event: EventEmitter<any> = new EventEmitter();
 
-  constructor(private datosSkill: SkillService, private activatedRoute: ActivatedRoute, private router: Router) { }
-
-  ngOnInit(): void { 
-
-    this.id= Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.datosSkill.buscarSkill(this.id).subscribe(data =>{
-      console.log(data);
-      this.skillList=data ;
+  constructor(private router: Router, private builder: FormBuilder, private datosSkill: SkillService, private bsModalRef: BsModalRef) {
+    this.editPostForm = this.builder.group({
+      nombreSkill: new FormControl('', []),
+      percent: new FormControl('', []),
       
     });
+
+  
+
+    this.datosSkill.postIdSource.subscribe(data => {
+      this.id = data;
+      if (this.id !== undefined) {
+        this.datosSkill.buscarSkill(this.id).subscribe(data => {
+          this.skill = data;
+          
+          if (this.editPostForm!=null && this.skill!=null) {
+            this.editPostForm.controls['nombreSkill'].setValue(this.skill.nombreSkill);
+            this.editPostForm.controls['percent'].setValue(this.skill.percent);
+            
+          }
+        }, error => { console.log("Error while gettig post details") });
       }
-    
-      onUpdate(id: number) {
-        this.datosSkill.editarSkill(id, this.skillList).subscribe(
-          data => {
-            console.log(data);
-            this.datosSkill.editarSkill;
-            this.ngOnInit();
-        this.router.navigate(['/portfolio']);
-      },
-     
-    );
+    });
   }
 
+  onPostEditFormSkill() {
+    let skill = {
+      'id': this.id,
+      'nombreSkill':this.editPostForm.get('nombreSkill')?.value,
+      'percent':this.editPostForm.get('percent')?.value,
+     
+    
+    };
+
+    this.datosSkill.editarSkill(skill).subscribe(
+      data => {
+        console.log(data);
+        this.datosSkill.editarSkill;
+        this.bsModalRef.hide();   
+      
+        
+    });
+  }
+
+  onClose() {
+    this.bsModalRef.hide();
+   
+  }
+
+  ngOnInit() {
+
+  }
+ 
 }

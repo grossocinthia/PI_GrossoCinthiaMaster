@@ -1,56 +1,60 @@
-<app-barra></app-barra>
-
-<div class="container" *ngIf="escuelaList">
-    
-    <div class="row mt-5">
-        <h4 class="titulo">Editar Experiencia</h4>
-        <div class="col-md-6 mx-auto">
-            <form (ngSubmit)="onUpdate(escuelaList.id)" novalidate #f="ngForm">
-            <div class="form-group">
-                    <label for="imagenEd">Url Imagen </label>
-                    <input type="text" class="form-control" id="imagenEd" name="imagenEd"
-                    [(ngModel)]="escuelaList.imagenEd" required>
-                </div>
-                <div class="form-group">
-                    <label for="institucion">Institución</label>
-                    <input type="text" class="form-control" id="institucion" name="institucion"
-                    [(ngModel)]="escuelaList.institucion" required>
-                </div>
-               
-                <div class="form-group">
-                    <label for="titulo">Título</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo"
-                    [(ngModel)]="escuelaList.titulo" required>
-                </div>
-                <div class="form-group">
-                    <label for="estado">Estado</label>
-                    <input type="text" class="form-control" id="estado" name="estado"
-                    [(ngModel)]="escuelaList.estado" required>
-                </div>
-                <div class="form-group">
-                    <label for="comienzoEd">Comienzo</label>
-                    <input type="text" class="form-control" id="comienzoEd" name="comienzoEd"
-                    [(ngModel)]="escuelaList.comienzoEd" required>
-                </div>
-                <div class="form-group">
-                    <label for="finEd">Fin</label>
-                    <input type="text" class="form-control" id="finEd" name="finEd"
-                    [(ngModel)]="escuelaList.finEd" required>
-                </div>
-           
-            <div class="centrar">
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                    <i class="fas fa-pencil-alt" ></i> Actualizar</button>
-
-                <button class="btn btn-outline-primary btn-block" routerLink="/portfolio">
-                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
-                </div>   
-            </form>
+<div role="document">
+    <div>
+      <form class="form-horizontal" id="add-form" [formGroup]="editPostForm" (ngSubmit)="onPostEditFormEscuela()">
+        <div class="modal-header" *ngIf="escuela">
+          <h4 class="modal-title" id="add-modal-label">Editar Educación</h4>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true"></span></button>
+         
         </div>
+        <div class="entrador">
+        <div class="modal-body">
+         
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Institución</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="institucion" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Url imagen</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="imagenEd" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Título</label>
+            <div class="col-sm-12">
+              <textarea class="form-control" formControlName="titulo"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Estado</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="estado" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Comienzo</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="comienzoEd" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Fin</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="finEd" />
+            </div>
+          </div>
+          
+       
+      </div>
+        <div class="modal-footer">
+          <div class="centrar">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+      </div>
+        </div>
+      </form>
     </div>
-    </div>
-
-<app-footer></app-footer>
-
-
-
+  </div>

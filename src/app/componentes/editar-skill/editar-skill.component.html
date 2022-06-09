@@ -1,36 +1,36 @@
-<app-barra></app-barra>
-
-<div class="container" *ngIf="skillList">
-    
-    <div class="row mt-5">
-        <h4 class="titulo">Editar Skill</h4>
-        <div class="col-md-6 mx-auto">
-            <form (ngSubmit)="onUpdate(skillList.id)" novalidate #f="ngForm">
-            <div class="form-group">
-                    <label for="nombreSkill">Skill </label>
-                    <input type="text" class="form-control" id="nombreSkill" name="nombreSkill"
-                    [(ngModel)]="skillList.nombreSkill" required>
-                </div>
-                <div class="form-group">
-                    <label for="percent">Porcentaje</label>
-                    <input type="text" class="form-control" id="percent" name="percent"
-                    [(ngModel)]="skillList.percent" required>
-                </div>
-               
-           
-            <div class="centrar">
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                    <i class="fas fa-pencil-alt" ></i> Actualizar</button>
-
-                <button class="btn btn-outline-primary btn-block" routerLink="/portfolio">
-                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
-                </div>   
-            </form>
+<div role="document">
+    <div>
+      <form class="form-horizontal" id="add-form" [formGroup]="editPostForm" (ngSubmit)="onPostEditFormSkill()">
+        <div class="modal-header" *ngIf="skill">
+          <h4 class="modal-title" id="add-modal-label">Editar Skill</h4>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true"></span></button>
+         
         </div>
+        <div class="entrador">
+        <div class="modal-body">
+         
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Skill</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="nombreSkill" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Porcentaje</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="percent" />
+            </div>
+          </div>
+         
+       
+      </div>
+        <div class="modal-footer">
+          <div class="centrar">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Cerrar</button>
+          <button type="submit" class="btn btn-primary" >Actualizar</button>
+        </div>
+      </div>
+        </div>
+      </form>
     </div>
-    </div>
-
-<app-footer></app-footer>
-
-
-
+  </div>

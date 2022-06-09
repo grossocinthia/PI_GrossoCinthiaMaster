@@ -1,58 +1,66 @@
-<app-barra></app-barra>
-
-<div class="container" *ngIf="persona">
-    
-    <div class="row mt-5">
-        <h4 class="titulo">Editar Perfil</h4>
-        <div class="col-md-6 mx-auto">
-            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="imagen">Url Imagen Perfil</label>
-                    <input type="text" class="form-control" id="imagen" name="imagen"
-                    [(ngModel)]="persona.imagen" required>
-                </div>
-                <div class="form-group">
-                    <label for="backimagen">Url Imagen Banner</label>
-                    <input type="text" class="form-control" id="backimagen" name="backimagen"
-                    [(ngModel)]="persona.backimagen" required>
-                </div>
-                
-                
-                <div class="form-group">
-                    <label for="nombreCompleto">Nombre Completo</label>
-                    <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto"
-                    [(ngModel)]="persona.nombreCompleto" required>
-                </div>
-                <div class="form-group">
-                    <label for="titulos">Títulos</label>
-                    <input type="text" class="form-control" id="titulos" name="titulos"
-                    [(ngModel)]="persona.titulos" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="text" class="form-control" id="telefono" name="telefono"
-                    [(ngModel)]="persona.telefono" required>
-                </div>
-                <div class="form-group">
-                    <label for="ubicacion">Provincia</label>
-                    <input type="text" class="form-control" id="ubicacion" name="ubicacion"
-                    [(ngModel)]="persona.ubicacion" required>
-                </div>
-                <div class="form-group">
-                    <label for="acerca">Acerca de mi</label>
-                    <textarea name="acerca de mi" class="form-control" 
-                    [(ngModel)]="persona.acerca" required  id="acerca"></textarea>
-                </div>
-            <div class="centrar">
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                    <i class="fas fa-pencil-alt" ></i> Actualizar</button>
-
-                <button class="btn btn-outline-primary btn-block" routerLink="/portfolio">
-                    <i class="fas fa-arrow-alt-circle-left"></i> Volver</button>
-                </div>   
-            </form>
+<div role="document">
+    <div>
+      <form class="form-horizontal" id="add-form" [formGroup]="editPostForm" (ngSubmit)="onPostEditFormPerfil()">
+        <div class="modal-header" *ngIf="persona">
+          <h4 class="modal-title" id="add-modal-label">Editar Perfil</h4>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true"></span></button>
+         
         </div>
+        <div class="entrador">
+        <div class="modal-body">
+         
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Nombre Completo</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="nombreCompleto" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Url imagen perfil</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="imagen" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Url imagen del back</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="backimagen" />
+            </div>
+          </div>
+         
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Ubicación</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="ubicacion" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Teléfono</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="telefono" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Títulos</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="titulos" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Acerca de mi</label>
+            <div class="col-sm-12">
+              <textarea class="form-control" formControlName="acerca"></textarea>
+            </div>
+          </div>
+       
+      </div>
+        <div class="modal-footer">
+          <div class="centrar">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Cerrar</button>
+          <button type="submit" class="btn btn-primary"  >Actualizar</button>
+        </div>
+      </div>
+        </div>
+      </form>
     </div>
-</div>
-<app-footer></app-footer>
-
+  </div>

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProyectoService } from 'src/app/service/proyectoService';
 import { Proyecto } from 'src/app/models/proyecto';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'; 
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { EditarProyectoComponent } from '../editar-proyecto/editar-proyecto.component';
 
 
 @Component({
@@ -10,16 +13,19 @@ import { Proyecto } from 'src/app/models/proyecto';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
-  
+  proyecto: any;
   proyectoList: any;
   imagenProy='';
   tituloProy='';
   descripcion='';
   link='';
+  id:number=0;
+  bsModalRef: BsModalRef | undefined;
   
   constructor(private datosproyecto: ProyectoService, 
     private activatedRoute: ActivatedRoute, 
-    private router: Router
+    private router: Router,
+    private bsModalService: BsModalService
     ) { }
 
   ngOnInit(): void {
@@ -49,11 +55,22 @@ export class ProyectosComponent implements OnInit {
         this.ngOnInit();
         
       })
-      
     
   }
-}
-
-
-
-
+  
+  editPost(id: number) {
+    this.datosproyecto.changePostId(id);
+  
+    this.bsModalRef = this.bsModalService.show(EditarProyectoComponent);
+    this.bsModalRef.content.event.subscribe((result: string) => {
+      if (result == 'OK') {
+        setTimeout(() => {
+          this.datosproyecto.verProyecto();
+        }, 5000);
+      }
+    });
+  }
+  
+  }
+  
+  

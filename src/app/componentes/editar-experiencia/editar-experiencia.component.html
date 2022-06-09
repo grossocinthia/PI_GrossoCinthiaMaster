@@ -1,5 +1,67 @@
 
-<app-barra></app-barra>
+<div role="document">
+    <div>
+      <form class="form-horizontal" id="add-form" [formGroup]="editPostForm" (ngSubmit)="onPostEditFormExperiencia()">
+        <div class="modal-header" *ngIf="experiencia">
+          <h4 class="modal-title" id="add-modal-label">Editar Experiencia</h4>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true"></span></button>
+         
+        </div>
+        <div class="entrador">
+        <div class="modal-body">
+         
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Empresa</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="empresa" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Url imagen</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="imagenEx" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Cargo</label>
+            <div class="col-sm-12">
+              <textarea class="form-control" formControlName="posicion"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Tipo de Empleo</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="tipoEmpleo" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Comienzo</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="comienzoEx" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-6 control-label">Fin</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" formControlName="finEx" />
+            </div>
+          </div>
+          
+       
+      </div>
+        <div class="modal-footer">
+          <div class="centrar">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onClose()">Cerrar</button>
+          <button type="submit" class="btn btn-primary" >Actualizar</button>
+        </div>
+      </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+<!--<app-barra></app-barra>
 
 <div class="container" *ngIf="experienciaList">
     
@@ -51,5 +113,5 @@
     </div>
     </div>
 
-<app-footer></app-footer>
+<app-footer></app-footer>-->
 

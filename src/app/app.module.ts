@@ -26,9 +26,7 @@ import { EditarExperienciaComponent } from './componentes/editar-experiencia/edi
 import { EditarProyectoComponent } from './componentes/editar-proyecto/editar-proyecto.component';
 import { NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import { EditarSkillComponent } from './componentes/editar-skill/editar-skill.component';
-
-
-
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -60,10 +58,12 @@ import { EditarSkillComponent } from './componentes/editar-skill/editar-skill.co
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModalModule
+    NgbModalModule,
+    ModalModule.forRoot()
   ],
-  providers: [interceptorProvider
+  providers: [interceptorProvider, BsModalService
 ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[EditarEducacionComponent, EditarExperienciaComponent, EditarPerfilComponent, EditarProyectoComponent, EditarSkillComponent]
 })
 export class AppModule { }

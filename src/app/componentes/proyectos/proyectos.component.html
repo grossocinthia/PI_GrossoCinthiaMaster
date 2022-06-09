@@ -18,7 +18,8 @@
 <div id="acerca" class="col-xs-12 col-sm-4 col-md-6 col-lg-7">
  <span>
     <div class="fas fa-trash" (click)="borrarProyecto(proyecto.id)" > </div>
-    <div class="fas fa-pen"  routerLink="/editarProy/{{proyecto.id}}"> </div>
+    <div class="fas fa-pen"(click)="editPost(proyecto.id)"> </div>
+    
     <p class="h4">{{proyecto.tituloProy}}</p>
     <p class="cuerpo">{{proyecto.descripcion}} </p>
     <a href= {{proyecto.link}} class="btn btn-primary" target="_blank">Ver Proyecto</a>
@@ -32,7 +33,7 @@
 </div>
     
 
-  <!-- Modal -->
+  <!-- Modal  crear-->
   <div class="modal fade" id="crearProy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -48,6 +49,7 @@
                         <input type="imagenProy" class="form-control" id="imagenProy" name="imagenProy"
                         [(ngModel)]="imagenProy" required>
                     </div>
+                    <div class="form-group">
                     <label for="tituloProy">Titulo</label>
                     <input type="text" class="form-control" id="tituloProy" name="tituloProy"
                     [(ngModel)]="tituloProy" required>
@@ -65,14 +67,15 @@
                 </div>
                 
             <div class="centrar">
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                    <i class="fas fa-plus-circle" (click)="onCreate()" data-bs-dismiss="hide.bs.modal" ></i> Crear</button>
-                    
+                <button type="button" class="btn btn-primary" (click)="onCreate()" data-bs-dismiss="modal" >Crear</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>   
+            </div>
             </form>
         </div>
         
       </div>
     </div>
   </div>
+
+  
