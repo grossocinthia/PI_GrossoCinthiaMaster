@@ -67,6 +67,7 @@ export class ProyectosComponent implements OnInit {
         setTimeout(() => {
           this.datosproyecto.verProyecto();
         }, 5000);
+      
       }
     });
   }

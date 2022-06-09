@@ -52,17 +52,6 @@ export class ExperienciaComponent implements OnInit {
       
     
   }
-  onUpdate(experiencia:any) {
-    this.datosexperiencia.editarExperiencia( this.experiencia).subscribe(
-      data => {
-        console.log(data);
-        this.datosexperiencia.editarExperiencia;
-        this.ngOnInit();
-    this.router.navigate(['/portfolio']);
-  },
- 
-);
-}
   
 editPost(id: number) {
   this.datosexperiencia.changePostId(id);
