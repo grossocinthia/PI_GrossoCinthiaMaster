@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
                 <div id="experiencia" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-                    <div><i class="fas fa-plus" data-bs-toggle="modal" data-bs-target="#crearEx"></i> </div>
+                    <div><i class="fas fa-plus" *ngIf="isLogged" data-bs-toggle="modal" data-bs-target="#crearEx"></i> </div>
                     <p class="h3">Experiencia</p>
                     <div class="separador"> </div>
     </div>
@@ -14,8 +14,8 @@
                 </div>
         </div>
         <div id="acerca" class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
-                            <div class="fas fa-trash" (click)="borrarExperiencia(experiencia.id)" ></div>
-                            <div class="fas fa-pen"(click)="editPost(experiencia.id)"> </div>
+                            <div class="fas fa-trash" *ngIf="isLogged" (click)="borrarExperiencia(experiencia.id)" ></div>
+                            <div class="fas fa-pen" *ngIf="isLogged"(click)="editPost(experiencia.id)"> </div>
          <span>
             <p class="h4">{{experiencia.empresa}}</p>
             <p>{{experiencia.posicion}}</p>

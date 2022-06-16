@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Skill } from 'src/app/models/skill';
 import { SkillService } from 'src/app/service/skill.service';
+import { TokenService } from 'src/app/service/token-service.service';
 import { EditarSkillComponent } from '../editar-skill/editar-skill.component';
 
 
@@ -20,14 +21,22 @@ export class SkillsComponent  implements OnInit {
   bsModalRef: BsModalRef | undefined;
   result:any;
   skill:any;
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
 
-  constructor(private bsModalService: BsModalService, private datosSkill: SkillService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private tokenService: TokenService, private bsModalService: BsModalService, private datosSkill: SkillService, private activatedRoute: ActivatedRoute, private router: Router) { }
   
   ngOnInit(): void {
   this.datosSkill.verSkill().subscribe(data =>{
       console.log(data);
       this.skillList=data;
     });
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
  
   

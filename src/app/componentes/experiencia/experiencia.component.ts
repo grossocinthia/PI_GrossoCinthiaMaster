@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Experiencia } from 'src/app/models/experiencia';
 import { ExperienciaService } from 'src/app/service/experienciaService';
+import { TokenService } from 'src/app/service/token-service.service';
 import { EditarExperienciaComponent } from '../editar-experiencia/editar-experiencia.component';
 
 
@@ -23,14 +24,21 @@ export class ExperienciaComponent implements OnInit {
   tipoEmpleo='';
   comienzoEx='';
   finEx='';
-
-  constructor(  private bsModalService: BsModalService, private datosexperiencia: ExperienciaService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
+  constructor(private tokenService: TokenService,  private bsModalService: BsModalService, private datosexperiencia: ExperienciaService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   this.datosexperiencia.verExperiencia().subscribe(data =>{
       console.log(data);
       this.experienciaList=data;
     });
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
   borrarExperiencia(id: number) {
     this.datosexperiencia.borrarExperiencia(id).subscribe(

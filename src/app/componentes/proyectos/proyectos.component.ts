@@ -5,6 +5,7 @@ import { Proyecto } from 'src/app/models/proyecto';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'; 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { EditarProyectoComponent } from '../editar-proyecto/editar-proyecto.component';
+import { TokenService } from 'src/app/service/token-service.service';
 
 
 @Component({
@@ -21,8 +22,11 @@ export class ProyectosComponent implements OnInit {
   link='';
   id:number=0;
   bsModalRef: BsModalRef | undefined;
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
   
-  constructor(private datosproyecto: ProyectoService, 
+  constructor(private tokenService: TokenService, private datosproyecto: ProyectoService, 
     private activatedRoute: ActivatedRoute, 
     private router: Router,
     private bsModalService: BsModalService
@@ -33,7 +37,11 @@ export class ProyectosComponent implements OnInit {
       console.log(data);
       this.proyectoList=data;
     });
-   
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
     }
   
  

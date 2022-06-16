@@ -3,7 +3,7 @@
 
     <div class="row">
                 <div id="proyectos" class="col-12" >
-                <div><i class="fas fa-plus" data-bs-toggle="modal" data-bs-target="#crearProy"></i> </div>
+                <div><i class="fas fa-plus" *ngIf="isLogged" data-bs-toggle="modal" data-bs-target="#crearProy"></i> </div>
                     <p class="h3">Proyectos</p>
                     <div class="separador"> </div>
     </div>
@@ -17,8 +17,8 @@
 </div>
 <div id="acerca" class="col-xs-12 col-sm-4 col-md-6 col-lg-7">
  <span>
-    <div class="fas fa-trash" (click)="borrarProyecto(proyecto.id)" > </div>
-    <div class="fas fa-pen"(click)="editPost(proyecto.id)"> </div>
+    <div class="fas fa-trash" *ngIf="isLogged" (click)="borrarProyecto(proyecto.id)" > </div>
+    <div class="fas fa-pen" *ngIf="isLogged" (click)="editPost(proyecto.id)"> </div>
     
     <p class="h4">{{proyecto.tituloProy}}</p>
     <p class="cuerpo">{{proyecto.descripcion}} </p>
